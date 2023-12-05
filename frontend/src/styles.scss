@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+$primary-color: #FF8E3C;
+$secundarey-color : #FFFFFE;
+$main-color: #FFFFFE;
+$stroke-color: #0D0D0D;
+$button-text-color: #0D0D0D;
+$paragraph-color: #2A2A2A;
+$background-color: #EFF0F3;
+$crema-color: #F2E3C6;
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

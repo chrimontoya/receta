@@ -1,0 +1,23 @@
+@import '../../../../styles';
+
+.container {
+  background-color: $crema-color;
+  height: 100%;
+  width: 100%;
+}
+
+.container-buttons {
+  display: flex;
+  height: 100%;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.btn-carrousel {
+  height: 24px;
+  width: 24px;
+  border-radius: 20px;
+  border: none;
+  margin: 5px 5px 20% 5px;
+}
+

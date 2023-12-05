@@ -1,0 +1,7 @@
+<div class="container" [ngStyle]="{'background-color': backgroundSelected}" >
+  <div class="container-buttons">
+    <button mat-mini-fab class="first-button btn-carrousel" [ngStyle]="{'background-color': firstButton}" (click)="changeSelection(1)"></button>
+    <button mat-mini-fab class="second-button btn-carrousel" [ngStyle]="{'background-color': secondButton}" (click)="changeSelection(2)"></button>
+    <button mat-mini-fab class="third-button btn-carrousel" [ngStyle]="{'background-color': thirdButton}" (click)="changeSelection(3)"></button>
+  </div>
+</div>
