@@ -1,0 +1,33 @@
+<form [formGroup]="registerForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre</mat-label>
+    <input matInput placeholder="Christian" formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Apellido</mat-label>
+    <input matInput placeholder="Christian" formControlName="lastName">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Apellido</mat-label>
+    <input matInput placeholder="Christian" formControlName="lastName">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Dirección</mat-label>
+    <input matInput placeholder="Av. campos deportivos 198" formControlName="address">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Correo</mat-label>
+    <input matInput placeholder="chri.montoya@duocuc.cl" formControlName="email">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Contraseña</mat-label>
+    <input matInput placeholder="*********" formControlName="password" type="password">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary">Registrarse</button>
+</form>

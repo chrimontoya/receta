@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -12,6 +11,7 @@ import { getAnalytics } from "firebase/analytics";
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  database: any;
   title = 'frontend';
   firebaseConfig = {
     apiKey: "AIzaSyBicwWyy50fbOuGR8e39ZXrBS384KvM-uI",
