@@ -5,6 +5,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
 import {FirestoreService} from "../../../../core/services/firestore.service";
 import {addDoc, collection, deleteDoc, doc} from "firebase/firestore";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -19,7 +20,8 @@ export class RegisterComponent {
   dateBirth: string = "";
 
   constructor(
-    private firestoreService: FirestoreService
+    private firestoreService: FirestoreService,
+    private router: Router
   ) {
     this.registerForm = new FormGroup({
       name: new FormControl(),
@@ -39,7 +41,7 @@ export class RegisterComponent {
         this.userId = docRef.id;
 
         createUserWithEmailAndPassword(getAuth(), this.registerForm.get('email')!.value, this.registerForm.get('password')!.value)
-          .then()
+          .then( () => this.router.navigateByUrl('login'))
           .catch(err => console.error("Error al registrar email y contraseña ", err));
       }
 
