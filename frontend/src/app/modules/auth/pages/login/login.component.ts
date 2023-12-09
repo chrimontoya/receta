@@ -6,7 +6,7 @@ import {CarrouselComponent} from "../../../../core/components/carrousel/carrouse
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -28,10 +28,15 @@ export class LoginComponent {
   userControl: FormControl = new FormControl();
   passControl: FormControl = new FormControl();
 
+  constructor(
+    private router: Router
+  ) {
+  }
+
   logIn(){
     signInWithEmailAndPassword(getAuth(), this.userControl!.value, this.passControl!.value)
       .then( (userCredential) => {
-        console.log("Usuario autenticado " + userCredential.user)
+        this.router.navigateByUrl('/inicio');
       })
       .catch((err) => {
         console.error("Error " + err.code, "mensaje: " + err.message)
