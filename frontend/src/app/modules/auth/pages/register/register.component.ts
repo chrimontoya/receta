@@ -26,6 +26,25 @@ export class RegisterComponent {
   }
   registration(){
 
+    createUserWithEmailAndPassword(
+      getAuth(),
+      this.registerForm.get('email')!.value,
+      this.registerForm.get('password')!.value
+    ).then( res => {
+      //guardar datos de usuario
+      try {
+
+      } catch (err) {
+        console.error("Error al guardar datos de usuario ", err);
+      }
+
+      console.log("Usuario registrado");
+
+
+
+    }).catch(err => {
+      console.error("Error al registrar email y contraseña ", err)
+    });
 
   }
 

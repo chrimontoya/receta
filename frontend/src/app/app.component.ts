@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import {FirestoreService} from "./core/services/firestore.service";
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -23,9 +24,12 @@ export class AppComponent {
     measurementId: "G-QE60HT1JM8"
   };
 
-  constructor() {
+  constructor(
+    private firestoreService: FirestoreService
+  ) {
     const app = initializeApp(this.firebaseConfig);
     const analytics = getAnalytics(app);
+    this.firestoreService.setInstanceFirestore(app);
   }
 
 }
