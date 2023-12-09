@@ -11,4 +11,8 @@ export class FirestoreService {
     this.database = getFirestore(instance);
   }
 
+  getInstanceFirestore(): any {
+    return this.database;
+  }
+
 }

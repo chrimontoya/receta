@@ -10,11 +10,6 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>Apellido</mat-label>
-    <input matInput placeholder="Christian" formControlName="lastName">
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
     <mat-label>Dirección</mat-label>
     <input matInput placeholder="Av. campos deportivos 198" formControlName="address">
   </mat-form-field>
@@ -29,5 +24,5 @@
     <input matInput placeholder="*********" formControlName="password" type="password">
   </mat-form-field>
 
-  <button mat-raised-button color="primary">Registrarse</button>
+  <button mat-raised-button color="primary" (click)="registration()">Registrarse</button>
 </form>
