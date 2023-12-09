@@ -9,7 +9,7 @@
       <mat-label>Contraseña</mat-label>
       <input matInput [formControl]="passControl">
     </mat-form-field>
-    <button mat-raised-button color="primary">Iniciar sesión</button>
+    <button mat-raised-button color="primary" (click)="logIn()">Iniciar sesión</button>
     <a href="https://www.facebook.com/" target="registrarse">Registrarme</a>
     <button mat-raised-button><mat-icon>facebook</mat-icon> Iniciar sesión con Facebook</button>
   </div>

@@ -5,6 +5,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {CarrouselComponent} from "../../../../core/components/carrousel/carrousel.component";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -25,7 +27,13 @@ export class LoginComponent {
   passControl: FormControl = new FormControl();
 
   logIn(){
-
+    signInWithEmailAndPassword(getAuth(), this.userControl!.value, this.passControl!.value)
+      .then( (userCredential) => {
+        console.log("Usuario autenticado " + userCredential.user)
+      })
+      .catch((err) => {
+        console.error("Error " + err.code, "mensaje: " + err.message)
+      });
   }
 
 }
