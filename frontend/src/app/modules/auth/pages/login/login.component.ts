@@ -6,6 +6,7 @@ import {CarrouselComponent} from "../../../../core/components/carrousel/carrouse
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
     CarrouselComponent,
     ReactiveFormsModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    RouterLink
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
