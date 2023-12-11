@@ -16,7 +16,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     MatSidenavModule
   ],
   templateUrl: './landing.component.html',
-  styleUrl: './landing.component.sass'
+  styleUrl: './landing.component.scss'
 })
 export class LandingComponent {
 

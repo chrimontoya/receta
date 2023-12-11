@@ -5,7 +5,10 @@
 </mat-toolbar>
 
 <mat-drawer-container class="drawer-container">
-  <mat-drawer #drawer mode="side" opened>Drawer content</mat-drawer>
+  <mat-drawer #drawer mode="side" opened>
+    <button mat-raised-button color="primary" class="drawer-button">Recetas</button>
+    <button mat-raised-button color="primary" class="drawer-button">Menús</button>
+  </mat-drawer>
   <mat-drawer-content>
     <router-outlet></router-outlet>
   </mat-drawer-content>
