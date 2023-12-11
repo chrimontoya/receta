@@ -1,2 +1,12 @@
-<p>landing works!</p>
-<router-outlet></router-outlet>
+<mat-toolbar>
+  <button mat-icon-button aria-label="icon-drawer" (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-drawer-container class="drawer-container">
+  <mat-drawer #drawer mode="side" opened>Drawer content</mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
