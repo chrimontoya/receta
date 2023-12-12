@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {SideNavService} from "../../../../core/services/side-nav.service";
 
 @Component({
   selector: 'app-menu',
@@ -8,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrl: './menu.component.sass'
 })
 export class MenuComponent {
+  constructor(
+    private sideNavService: SideNavService
+  ) {
+    this.sideNavService.changeSelection(1);
+  }
 
 }

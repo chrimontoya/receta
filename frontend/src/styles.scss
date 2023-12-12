@@ -21,3 +21,7 @@ mat-form-field, button {
 button { height: 48px }
 
 a { margin: 10px; text-decoration: none}
+
+.mat-toolbar, .mat-drawer {
+  background-color: $background-color;
+}

@@ -6,8 +6,8 @@
 
 <mat-drawer-container class="drawer-container">
   <mat-drawer #drawer mode="side" opened>
-    <button mat-raised-button color="primary" class="drawer-button">Recetas</button>
-    <button mat-raised-button color="primary" class="drawer-button">Menús</button>
+    <button mat-raised-button class="drawer-button" [ngStyle]="idButtonSelected == 0 ? {'background-color': primaryColor} : {'background-color': secondaryColor}" routerLink="/inicio/recetas">Recetas</button>
+    <button mat-raised-button class="drawer-button" [ngStyle]="idButtonSelected == 1 ? {'background-color': primaryColor} : {'background-color': secondaryColor}" routerLink="/inicio/menus">Menús</button>
   </mat-drawer>
   <mat-drawer-content>
     <router-outlet></router-outlet>

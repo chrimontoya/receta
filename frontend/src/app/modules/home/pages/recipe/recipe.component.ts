@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {SideNavService} from "../../../../core/services/side-nav.service";
 
 @Component({
   selector: 'app-recipe',
@@ -8,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './recipe.component.sass'
 })
 export class RecipeComponent {
+  constructor(
+    private sideNavService: SideNavService
+  ) {
+    this.sideNavService.changeSelection(0);
+  }
+
 
 }
