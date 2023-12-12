@@ -6,7 +6,7 @@ import {SideNavService} from "../../../../core/services/side-nav.service";
   standalone: true,
   imports: [],
   templateUrl: './menu.component.html',
-  styleUrl: './menu.component.sass'
+  styleUrl: './menu.component.scss'
 })
 export class MenuComponent {
   constructor(
