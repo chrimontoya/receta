@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import {RouterLink, RouterOutlet} from "@angular/router";
+import {Router, RouterLink, RouterOutlet} from "@angular/router";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {SideNavService} from "../../../../core/services/side-nav.service";
 import {NgStyle} from "@angular/common";
+import {getAuth, signOut} from "firebase/auth";
+import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
 
 @Component({
   selector: 'app-landing',
@@ -27,11 +29,20 @@ export class LandingComponent {
   primaryColor: string = "#FF8E3C";
   secondaryColor: string = "#FFFFFE";
   constructor(
-    private sideNavService: SideNavService
+    private sideNavService: SideNavService,
+    private router: Router,
   ) {
     this.sideNavService.buttonSelected
       .subscribe( (idButton) => {
         this.idButtonSelected = idButton;
+      });
+  }
+
+  logOut(){
+    signOut(getAuth())
+      .then(res => {
+        console.log("Sesión terminada");
+        this.router.navigateByUrl('/login');
       });
   }
 }

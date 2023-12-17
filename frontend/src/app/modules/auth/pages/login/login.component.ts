@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {FormControl, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {CarrouselComponent} from "../../../../core/components/carrousel/carrousel.component";
@@ -25,22 +25,28 @@ import {Router, RouterLink} from "@angular/router";
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  userControl: FormControl = new FormControl();
-  passControl: FormControl = new FormControl();
-
+  formLogin: FormGroup = new FormGroup({
+    userControl: new FormControl(null, [Validators.required]),
+    passControl: new FormControl(null, [Validators.required])
+  });
   constructor(
     private router: Router
   ) {
   }
 
   logIn(){
-    signInWithEmailAndPassword(getAuth(), this.userControl!.value, this.passControl!.value)
-      .then( (userCredential) => {
-        this.router.navigateByUrl('/inicio');
-      })
-      .catch((err) => {
-        console.error("Error " + err.code, "mensaje: " + err.message)
-      });
+    if(this.formLogin.valid){
+      signInWithEmailAndPassword(getAuth(), this.formLogin.get('userControl')!.value, this.formLogin.get('passControl')!.value)
+        .then( (userCredential) => {
+          this.router.navigateByUrl('/inicio');
+        })
+        .catch((err) => {
+          console.error("Error " + err.code, "mensaje: " + err.message);
+          if("auth/missing-email"){
+            console.error("Error mostrar modal o interceptor");
+          }
+        });
+    }
   }
 
 }

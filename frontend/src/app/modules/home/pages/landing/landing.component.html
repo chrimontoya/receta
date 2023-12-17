@@ -8,6 +8,7 @@
   <mat-drawer #drawer mode="over" opened="false">
     <button mat-raised-button class="drawer-button" [ngStyle]="idButtonSelected == 0 ? {'background-color': primaryColor} : {'background-color': secondaryColor}" routerLink="/inicio/recetas">Recetas</button>
     <button mat-raised-button class="drawer-button" [ngStyle]="idButtonSelected == 1 ? {'background-color': primaryColor} : {'background-color': secondaryColor}" routerLink="/inicio/menus">Menús</button>
+    <button mat-raised-button class="drawer-button" (click)="logOut()">Cerrar sesión</button>
   </mat-drawer>
   <mat-drawer-content>
     <router-outlet></router-outlet>

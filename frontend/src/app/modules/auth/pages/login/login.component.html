@@ -1,16 +1,18 @@
 <div class="container">
   <app-carrousel class="container-carrousel"/>
-  <div class="container-form-login">
+  <form class="container-form-login" [formGroup]="formLogin">
     <mat-form-field appearance="outline">
       <mat-label>Usuario</mat-label>
-      <input matInput [formControl]="userControl">
+      <input matInput formControlName="userControl" autocomplete="username">
+      <mat-error>Debe ingresar un usuario</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Contraseña</mat-label>
-      <input matInput [formControl]="passControl" type="password">
+      <input matInput formControlName="passControl" type="password" autocomplete="current-password">
+      <mat-error>Debe ingresar una contraseña</mat-error>
     </mat-form-field>
     <button mat-raised-button color="primary" (click)="logIn()">Iniciar sesión</button>
     <a routerLink="/registrarse" target="registrarse">Registrarme</a>
     <button mat-raised-button><mat-icon>facebook</mat-icon> Iniciar sesión con Facebook</button>
-  </div>
+  </form>
 </div>
