@@ -1,7 +1,8 @@
 @import '../../../../../styles';
 
 .mat-drawer-content {
-  background-color: gray;
+  background-color: $card-background-color;
+
 }
 .drawer-container {
   width: 100%;

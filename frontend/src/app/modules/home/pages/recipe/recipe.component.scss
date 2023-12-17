@@ -1,3 +1,8 @@
-.container {
+mat-grid-list {
+  width: 90%;
+  margin: auto;
 
+  mat-grid-tile {
+    overflow: hidden;
+  }
 }

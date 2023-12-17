@@ -1,6 +1,14 @@
 
-<button mat-raised-button color="primary">Tendencias</button>
-<button mat-raised-button color="primary">Favoritos <mat-icon>star</mat-icon></button>
+<!--<button mat-raised-button color="primary">Tendencias</button>-->
+<!--<button mat-raised-button color="primary">Favoritos <mat-icon>star</mat-icon></button>-->
+<mat-grid-list [cols]="cols" rowHeight="460px" gutterSize="10px">
+  <mat-grid-tile><app-recipe-card></app-recipe-card></mat-grid-tile>
+  <mat-grid-tile><app-recipe-card></app-recipe-card></mat-grid-tile>
 
+  <mat-grid-tile><app-recipe-card></app-recipe-card></mat-grid-tile>
 
-<app-recipe-card></app-recipe-card>
+  <mat-grid-tile><app-recipe-card></app-recipe-card></mat-grid-tile>
+
+  <mat-grid-tile><app-recipe-card></app-recipe-card></mat-grid-tile>
+
+</mat-grid-list>

@@ -1,9 +1,9 @@
-<mat-card class="example-card" *ngIf="recipeCard">
+<mat-card *ngIf="recipeCard">
   <mat-card-header>
     <mat-card-title>{{recipeCard.title}}</mat-card-title>
     <mat-card-subtitle>{{recipeCard.userName}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image [src]="recipeCard.imageUrl" [alt]="recipeCard.alt">
+  <img class="img" mat-card-image  [alt]="recipeCard.alt">
   <mat-card-content>
     <p>
       {{recipeCard.description}}

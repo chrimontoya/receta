@@ -6,6 +6,7 @@ $button-text-color: #0D0D0D;
 $paragraph-color: #2A2A2A;
 $background-color: #EFF0F3;
 $crema-color: #F2E3C6;
+$card-background-color: #eff0f3;
 
 body, html {
   margin: 0;
@@ -24,4 +25,8 @@ a { margin: 10px; text-decoration: none}
 
 .mat-toolbar, .mat-drawer {
   background-color: $background-color;
+}
+
+.flex {
+  display: flex;
 }
