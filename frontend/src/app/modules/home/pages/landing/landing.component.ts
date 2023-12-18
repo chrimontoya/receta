@@ -8,6 +8,7 @@ import {SideNavService} from "../../../../core/services/side-nav.service";
 import {NgStyle} from "@angular/common";
 import {getAuth, signOut} from "firebase/auth";
 import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
+import {AlertService} from "../../../../core/services/alert.service";
 
 @Component({
   selector: 'app-landing',
@@ -31,6 +32,7 @@ export class LandingComponent {
   constructor(
     private sideNavService: SideNavService,
     private router: Router,
+    private alertService: AlertService,
   ) {
     this.sideNavService.buttonSelected
       .subscribe( (idButton) => {
@@ -41,7 +43,7 @@ export class LandingComponent {
   logOut(){
     signOut(getAuth())
       .then(res => {
-        console.log("Sesión terminada");
+        this.alertService.info('Se ha cerrado la sesión', 'Iniciar sesión');
         this.router.navigateByUrl('/login');
       });
   }
