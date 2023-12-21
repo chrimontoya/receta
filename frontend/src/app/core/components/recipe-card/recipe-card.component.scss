@@ -22,4 +22,12 @@ mat-card {
   }
 }
 
+mat-card:hover {
+  background-color: $primary-color;
+}
+
+a {
+  padding: 10px;
+}
+
 

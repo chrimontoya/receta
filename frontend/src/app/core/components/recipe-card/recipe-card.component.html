@@ -1,4 +1,4 @@
-<mat-card *ngIf="recipeCard">
+<mat-card *ngIf="recipeCard" (click)="pressed()">
   <mat-card-header>
     <mat-card-title>{{recipeCard.title}}</mat-card-title>
     <mat-card-subtitle>{{recipeCard.userName}}</mat-card-subtitle>

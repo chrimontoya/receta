@@ -20,6 +20,8 @@ export class CarrouselComponent {
   secondButton: string = '#FFFFFE';
   thirdButton: string = '#FFFFFE';
 
+  
+
 
   changeSelection(position: number){
     switch (position){

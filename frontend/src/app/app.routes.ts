@@ -5,6 +5,7 @@ import {LandingComponent} from "./modules/home/pages/landing/landing.component";
 import {RecipeComponent} from "./modules/home/pages/recipe/recipe.component";
 import {MenuComponent} from "./modules/home/pages/menu/menu.component";
 import {authGuard} from "./core/guards/auth.guard";
+import {RecipeDetailComponent} from "./modules/home/pages/recipe/recipe-detail/recipe-detail.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -21,4 +22,5 @@ export const routes: Routes = [
       }
     ]
   },
+  {path: 'inicio/recetas/:nombre/:id', component: RecipeDetailComponent, canActivate: [authGuard]}
 ];

@@ -3,6 +3,8 @@ import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {NgForOf, NgIf} from "@angular/common";
+import {Router} from "@angular/router";
+import {state} from "@angular/animations";
 
 @Component({
   selector: 'app-recipe-card',
@@ -18,6 +20,11 @@ import {NgForOf, NgIf} from "@angular/common";
   styleUrl: './recipe-card.component.scss'
 })
 export class RecipeCardComponent {
+  constructor(
+    private router: Router,
+  ) {
+  }
+
   @Input() recipeCard: any = {
     title: "Hola mundo",
     userName: "christian",
@@ -26,4 +33,9 @@ export class RecipeCardComponent {
     preparationTime: "24min"
   };
   public datos: any = [1,2,3];
+
+  pressed = () => {
+    console.log("Card pressed");
+    this.router.navigateByUrl(`inicio/recetas/${this.recipeCard.title}/2`,{state: { recipe: this.recipeCard}});
+  };
 }
