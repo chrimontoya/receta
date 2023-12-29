@@ -15,4 +15,9 @@ export class FirestoreService {
     return this.database;
   }
 
+  //recipe
+  getRecipeDetails(){
+
+  }
+
 }

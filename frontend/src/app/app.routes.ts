@@ -6,6 +6,7 @@ import {RecipeComponent} from "./modules/home/pages/recipe/recipe.component";
 import {MenuComponent} from "./modules/home/pages/menu/menu.component";
 import {authGuard} from "./core/guards/auth.guard";
 import {RecipeDetailComponent} from "./modules/home/pages/recipe/recipe-detail/recipe-detail.component";
+import {MyRecipesComponent} from "./modules/home/pages/my-recipes/my-recipes.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -19,6 +20,9 @@ export const routes: Routes = [
       },
       {
         path: 'menus', component: MenuComponent, canActivate: [authGuard]
+      },
+      {
+        path: 'mis-recetas', component: MyRecipesComponent, canActivate: [authGuard]
       }
     ]
   },
