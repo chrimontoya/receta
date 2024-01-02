@@ -7,6 +7,7 @@ import {MenuComponent} from "./modules/home/pages/menu/menu.component";
 import {authGuard} from "./core/guards/auth.guard";
 import {RecipeDetailComponent} from "./modules/home/pages/recipe/recipe-detail/recipe-detail.component";
 import {MyRecipesComponent} from "./modules/home/pages/my-recipes/my-recipes.component";
+import {AddRecipeComponent} from "./modules/home/pages/my-recipes/add-recipe/add-recipe.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -23,8 +24,9 @@ export const routes: Routes = [
       },
       {
         path: 'mis-recetas', component: MyRecipesComponent, canActivate: [authGuard]
-      }
+      },
+      {path: 'mis-recetas/agregar-receta', component: AddRecipeComponent, canActivate: [authGuard]},
     ]
   },
-  {path: 'inicio/recetas/:nombre/:id', component: RecipeDetailComponent, canActivate: [authGuard]}
+  {path: 'inicio/recetas/:nombre/:id', component: RecipeDetailComponent, canActivate: [authGuard]},
 ];

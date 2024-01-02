@@ -226,8 +226,29 @@ button.toast-close-button {
   }
 }
 
-
 .column {
   display: flex;
   flex-direction: column;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+mat-divider {
+  padding-bottom: 10px;
+}
+
+.vertical-margin {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.container {
+  margin: 20px;
 }

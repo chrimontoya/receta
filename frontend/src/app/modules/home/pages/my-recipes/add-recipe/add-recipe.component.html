@@ -1,0 +1,116 @@
+<h3 class="text-center">Agregar Receta </h3>
+
+<div class="center">
+  <form class="column" [formGroup]="recipeForm">
+    <!----Receta--->
+    <h3>Detalle</h3>
+    <div class="column">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Título</mat-label>
+        <input matInput
+               formControlName="title"
+               placeholder="Leche con platano">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Porciones</mat-label>
+        <input matInput
+               formControlName="portion"
+               type="number" min="1"
+               placeholder="Ejemplo 3">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput placeholder="Leche de feria con platano de feria para hacerlo de postre" formControlName="description"></textarea>
+      </mat-form-field>
+
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <!--- Ingredientes--->
+    <h3>Ingredientes</h3>
+    <div class="column">
+
+      <ng-container formArrayName="ingredients">
+
+        <ng-container *ngFor="let ingredient of getIngredientsForm().controls; let i = index;" [formGroupName]="i">
+
+          <div class="flex">
+
+            <button mat-icon-button aria-label="Eliminar ingrediente" (click)="removeIngredient(i)" style="width: 48px;">
+              <mat-icon>close</mat-icon>
+            </button>
+
+            <mat-form-field appearance="outline" style="width: 295px;">
+              <mat-label>Ingrediente {{(i + 1)}}</mat-label>
+              <input formControlName="name" matInput placeholder="harina">
+            </mat-form-field>
+
+          </div>
+
+          <!--              <mat-form-field appearance="outline">-->
+          <!--                <mat-label>Kilogramos</mat-label>-->
+          <!--                <input formControlName="kilogram" matInput type="number" placeholder="0.4">-->
+          <!--              </mat-form-field>-->
+
+          <!--              <mat-form-field appearance="outline">-->
+          <!--                <mat-label>Cantidad</mat-label>-->
+          <!--                <input formControlName="cant" matInput type="number" placeholder="0">-->
+          <!--              </mat-form-field>-->
+
+        </ng-container>
+
+      </ng-container>
+
+      <div class="vertical-margin">
+        <button mat-raised-button (click)="addIngredient()">Agregar ingrediente</button>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <h3>Preparación</h3>
+    <div class="column">
+
+      <ng-container formArrayName="steps">
+
+        <ng-container *ngFor="let step of getStepsForm().controls; let i = index;" [formGroupName]="i">
+
+          <div class="flex">
+
+            <button mat-icon-button aria-label="Eliminar paso" (click)="removeStep(i)" style="width: 48px;">
+              <mat-icon>close</mat-icon>
+            </button>
+
+            <mat-form-field appearance="outline" style="width: 295px;">
+              <mat-label>Paso {{(i+1)}}</mat-label>
+              <input formControlName="name" matInput placeholder="harina">
+            </mat-form-field>
+
+          </div>
+
+          <!--              <mat-form-field appearance="outline">-->
+          <!--                <mat-label>Kilogramos</mat-label>-->
+          <!--                <input formControlName="kilogram" matInput type="number" placeholder="0.4">-->
+          <!--              </mat-form-field>-->
+
+          <!--              <mat-form-field appearance="outline">-->
+          <!--                <mat-label>Cantidad</mat-label>-->
+          <!--                <input formControlName="cant" matInput type="number" placeholder="0">-->
+          <!--              </mat-form-field>-->
+
+        </ng-container>
+
+      </ng-container>
+      <button mat-raised-button (click)="addStep()">Agregar paso</button>
+    </div>
+
+  </form>
+</div>
+
+<div class="center vertical-margin">
+  <button mat-raised-button (click)="saveRecipe()">Guardar receta</button>
+</div>
