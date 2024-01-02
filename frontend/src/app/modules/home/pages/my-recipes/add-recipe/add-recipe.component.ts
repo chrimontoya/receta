@@ -11,6 +11,8 @@ import {FirestoreService} from "../../../../../core/services/firestore.service";
 import {AlertService} from "../../../../../core/services/alert.service";
 import {getAuth} from "firebase/auth";
 import {addDoc, collection} from "firebase/firestore";
+import {getStorage,ref,uploadBytes } from "firebase/storage";
+import {StorageService} from "../../../../../core/services/storage.service";
 
 @Component({
   selector: 'app-add-recipe',
@@ -38,6 +40,7 @@ export class AddRecipeComponent {
     private fb: FormBuilder,
     private firestoreService: FirestoreService,
     private alertService: AlertService,
+    private storageService: StorageService,
   ) {
     this.sideNavService.changeSelection(2);
     this.recipeForm = this.fb.group({
@@ -48,6 +51,7 @@ export class AddRecipeComponent {
       ingredients: this.fb.array([this.createIngredient()]),
       steps: this.fb.array( [this.createStep()]),
       user: this.user.email !== undefined ? this.user.email : this.user.uid,
+      imageUrl: new FormControl(),
     });
 
     this.ingredientList = this.recipeForm.get('ingredients') as FormArray;
@@ -107,6 +111,14 @@ export class AddRecipeComponent {
       this.alertService.error("Error al crear la receta", "Mis Recetas");
     }
 
+  }
+
+  getFile(event: any){
+    const file = event.target.files[0] as File;
+    this.storageService.uploadFile(file)
+      .then(
+        (res: string) => this.recipeForm.get('imageUrl')?.patchValue(res)
+      );
   }
 
 }

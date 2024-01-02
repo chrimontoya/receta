@@ -30,6 +30,7 @@ export class AppComponent {
     const app = initializeApp(this.firebaseConfig);
     const analytics = getAnalytics(app);
     this.firestoreService.setInstanceFirestore(app);
+    this.firestoreService.setInstanceStorage(app);
   }
 
 }

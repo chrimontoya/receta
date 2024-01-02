@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { getFirestore } from 'firebase/firestore';
+import { getStorage } from "firebase/storage";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirestoreService {
   database: any;
+  storage: any;
   constructor() { }
   setInstanceFirestore(instance: any){
     this.database = getFirestore(instance);
@@ -15,9 +17,11 @@ export class FirestoreService {
     return this.database;
   }
 
-  //recipe
-  getRecipeDetails(){
-
+  setInstanceStorage(instance: any){
+    this.storage = getStorage(instance);
+  }
+  getStorage(): any {
+    return this.storage;
   }
 
 }

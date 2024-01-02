@@ -3,7 +3,7 @@
     <mat-card-title>{{recipeCard.title}}</mat-card-title>
     <mat-card-subtitle>{{recipeCard.user}}</mat-card-subtitle>
   </mat-card-header>
-  <img class="img" mat-card-image  [alt]="recipeCard.alt">
+  <img class="img" mat-card-image  [alt]="recipeCard.alt" [src]="recipeCard.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/receta-cbdf0.appspot.com/o/images%2F404%2F404.avif?alt=media&token=0059bc5b-ad4c-4cec-8c97-41815817c22c'">
   <mat-card-content>
     <p>
       {{recipeCard.description}}

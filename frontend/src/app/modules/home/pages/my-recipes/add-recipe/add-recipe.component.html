@@ -26,6 +26,7 @@
         <textarea matInput placeholder="Leche de feria con platano de feria para hacerlo de postre" formControlName="description"></textarea>
       </mat-form-field>
 
+      <input type="file" (change)="getFile($event)">
     </div>
 
     <mat-divider></mat-divider>
