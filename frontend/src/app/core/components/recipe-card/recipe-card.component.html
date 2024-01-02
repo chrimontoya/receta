@@ -1,7 +1,7 @@
 <mat-card *ngIf="recipeCard" (click)="pressed()">
   <mat-card-header>
     <mat-card-title>{{recipeCard.title}}</mat-card-title>
-    <mat-card-subtitle>{{recipeCard.userName}}</mat-card-subtitle>
+    <mat-card-subtitle>{{recipeCard.user}}</mat-card-subtitle>
   </mat-card-header>
   <img class="img" mat-card-image  [alt]="recipeCard.alt">
   <mat-card-content>
@@ -10,6 +10,6 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <div>Timpo aprox {{recipeCard.preparationTime}}</div>
+    <div>Timpo aprox {{recipeCard.timeDuration}}</div>
   </mat-card-actions>
 </mat-card>

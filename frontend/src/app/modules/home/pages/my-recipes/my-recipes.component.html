@@ -1,6 +1,12 @@
 <h3 class="text-center">Mis Recetas</h3>
 
 <div class="container">
-  <button mat-raised-button (click)="openFormToAddRecipe()" [routerLink]="addRecipeUrl">Agregar receta</button>
+  <button mat-raised-button [routerLink]="addRecipeUrl">Agregar receta</button>
 </div>
 
+
+<mat-grid-list [cols]="cols" rowHeight="460px" gutterSize="10px">
+  <mat-grid-tile *ngFor="let recipe of recipeList">
+    <app-recipe-card [recipeCard]="recipe"></app-recipe-card>
+  </mat-grid-tile>
+</mat-grid-list>

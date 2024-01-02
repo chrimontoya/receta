@@ -27,10 +27,10 @@ export class RecipeCardComponent {
 
   @Input() recipeCard: any = {
     title: "Hola mundo",
-    userName: "christian",
+    user: "christian",
     imageUrl: "https://img.freepik.com/foto-gratis/fresas-recien-recolectadas-campo-imagen-generada-ia_511042-1699.jpg?w=1480&t=st=1702431530~exp=1702432130~hmac=1bb143f7625de019e447a96c08dcab9c451ac3e4fa9c978718ed9518fb42d2c0",
     description: "Esta es una descripcion de prueba para ver el contenido de un card para ver como queda y ver los espacios al rededor como tambien se comporta el texto dentro de este",
-    preparationTime: "24min"
+    timeDuration: "24min"
   };
   public datos: any = [1,2,3];
 

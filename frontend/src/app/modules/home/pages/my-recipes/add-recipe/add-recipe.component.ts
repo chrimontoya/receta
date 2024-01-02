@@ -6,7 +6,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import {NgForOf} from "@angular/common";
-import {FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import {FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {FirestoreService} from "../../../../../core/services/firestore.service";
 import {AlertService} from "../../../../../core/services/alert.service";
 import {getAuth} from "firebase/auth";
@@ -31,6 +31,8 @@ export class AddRecipeComponent {
   recipeForm: FormGroup = this.fb.group({});
   ingredientList!: FormArray;
   stepList!: FormArray;
+  loading: boolean = false;
+  user: any = getAuth().currentUser;
   constructor(
     private sideNavService: SideNavService,
     private fb: FormBuilder,
@@ -39,12 +41,13 @@ export class AddRecipeComponent {
   ) {
     this.sideNavService.changeSelection(2);
     this.recipeForm = this.fb.group({
-      title: new FormControl(),
-      description: new FormControl(),
-      portion: new FormControl(),
+      title: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
+      portion: new FormControl('', [Validators.min(1), Validators.required]),
       timeDuration: new FormControl(),
       ingredients: this.fb.array([this.createIngredient()]),
       steps: this.fb.array( [this.createStep()]),
+      user: this.user.email !== undefined ? this.user.email : this.user.uid,
     });
 
     this.ingredientList = this.recipeForm.get('ingredients') as FormArray;
@@ -53,8 +56,8 @@ export class AddRecipeComponent {
 
   createIngredient(): FormGroup {
     return this.fb.group({
-      id: new FormControl(),
-      name: new FormControl(),
+      id: new FormControl( this.ingredientList !== undefined ? this.ingredientList.length : 0),
+      name: new FormControl('',[Validators.required]),
       // kilogram: new FormControl(),
       // cant: new FormControl(),
     });
@@ -73,9 +76,8 @@ export class AddRecipeComponent {
   }
   createStep(): FormGroup {
     return this.fb.group({
-      name: new FormControl(),
-      // kilogram: new FormControl(),
-      // cant: new FormControl(),
+      id: new FormControl(this.stepList !== undefined ? this.stepList.length : 0),
+      name: new FormControl('', [Validators.required]),
     });
   }
   addStep(){
@@ -95,10 +97,13 @@ export class AddRecipeComponent {
     console.log(getAuth().currentUser?.email);
 
     const docRef = await addDoc(collection(this.firestoreService.getInstanceFirestore(), "RECIPE"), this.recipeForm.value);
+    this.loading = true;
 
     if(docRef.id !== undefined){
+      this.loading = false;
       this.alertService.success("Se ha creado la receta", "Mis Recetas");
     } else {
+      this.loading = false;
       this.alertService.error("Error al crear la receta", "Mis Recetas");
     }
 
